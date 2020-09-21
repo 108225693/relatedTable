@@ -1,0 +1,67 @@
+:host {
+  .bg {
+    background : #1890ff;
+    color      : #fff;
+    font-weight: normal;
+    text-align : center;
+    line-height: 56px;
+    padding    : 0;
+  }
+
+  .bt {
+    margin  : 6px 0 0 0;
+    width   : 300px;
+    height  : 20px;
+    overflow: hidden;
+  }
+
+  .back {
+    left     : 10px;
+    top      : 10px;
+    font-size: 16px;
+    position : absolute;
+    cursor   : pointer;
+    color    : #fff;
+    z-index  : 9;
+
+    .hydrated {
+      float    : left;
+      font-size: 26px;
+      margin   : 4px 5px 0 0;
+    }
+
+    span {
+      float: left;
+    }
+  }
+
+  .info {
+    position : absolute;
+    z-index  : 9;
+    font-size: 22px;
+    color    : #fff;
+    top      : 0;
+    right    : 0;
+    padding  : 16px 15px;
+  }
+
+  .user {
+    padding   : 18px 5px 18px 18px;
+    height    : 106px;
+    background: #3880ff;
+    color     : #fff;
+
+    span {
+      float     : left;
+      width     : 190px;
+      overflow  : hidden;
+      margin-top: 10px;
+    }
+
+    img {
+      float    : left;
+      max-width: 70px;
+      margin   : 0 15px 0 0;
+    }
+  }
+}

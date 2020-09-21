@@ -1,0 +1,30 @@
+<ion-content [fullscreen]="true">
+  <!-- <div *ngIf="autoLoginView;else tips" class="login"> -->
+  <div class="login">
+    <div class="logo"></div>
+    <div class="form">
+      <div class="line30"></div>
+      <ion-item>
+        <ion-label>
+          <ion-icon name="person-outline"></ion-icon>
+        </ion-label>
+        <ion-input placeholder="请输入用户名" [(ngModel)]="loginName"></ion-input>
+      </ion-item>
+      <div class="line30"></div>
+      <ion-item>
+        <ion-label>
+          <ion-icon name="lock-closed-outline"></ion-icon>
+        </ion-label>
+        <ion-input type="password" placeholder="请输入密码" [(ngModel)]="loginPwd"></ion-input>
+      </ion-item>
+      <div class="line30"></div>
+      <ion-button expand="full" (click)="login()">登录</ion-button>
+    </div>
+    <div class="foot"></div>
+  </div>
+  <!-- <ng-template #tips>
+    <div style="text-align:center;padding-top:30px">
+      已有登录信息 <br /> <ion-button size="small" (click)="toMain()" style="margin-top:20px">跳回首页</ion-button>
+    </div>
+  </ng-template> -->
+</ion-content>

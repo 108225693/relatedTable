@@ -1,0 +1,11 @@
+#移除平台
+ionic cordova platform remove android
+
+#添加平台
+ionic cordova platform add android
+
+#打开模拟器
+#android avd
+
+#打包APK
+ionic cordova build android --prod

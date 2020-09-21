@@ -1,0 +1,92 @@
+:host {
+    .view_wrap {
+        .inputBg {
+            padding   : 5px;
+            display   : inline-block;
+            min-width : 100px;
+            background: #eee;
+        }
+
+        .title {
+            font-size  : 18px;
+            font-weight: bold;
+            padding    : 15px 0 10px 0;
+        }
+    }
+
+    .p15 {
+        padding: 15px;
+    }
+
+    .mr10 {
+        margin-right: 10px;
+    }
+
+    .syqk {
+        border-top : 1px solid #ddd;
+        padding-top: 0;
+        margin     : 0 15px;
+    }
+
+    .opera {
+        padding: 15px 15px 0 15px;
+    }
+
+    .radio_group {
+        .md {
+            padding: 0;
+        }
+
+        .ft20 {
+            font-size: 20px;
+            margin   : 0;
+        }
+    }
+
+    .tableLink {
+        width        : calc(100% - 30px);
+        // height    : calc(100vh - 340px);
+        margin       : 15px;
+        overflow-x   : hidden;
+        overflow-y   : auto;
+
+        &.noscroll {
+            overflow     : hidden;
+            height       : auto;
+            margin-bottom: 0;
+        }
+
+        table {
+            width          : 100%;
+            border-collapse: collapse;
+            border-spacing : 0;
+            border-left    : 1px solid #ccc;
+            border-top     : 1px solid #ccc;
+
+            th,
+            td {
+                border-right : 1px solid #ccc;
+                border-bottom: 1px solid #ccc;
+                padding      : 5px 2px;
+                font-weight  : normal;
+                text-align   : center;
+                font-size    : 14px;
+            }
+
+            th {
+                background: #f1f1f1;
+            }
+
+            td {
+                background: #fff;
+            }
+        }
+    }
+
+    .myCustom {
+        button {
+            width : 40%;
+            margin: 0 10px;
+        }
+    }
+}

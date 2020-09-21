@@ -1,0 +1,59 @@
+<div class="tableStatus">
+    状态：<span>{{viewParam.stateName}}</span>
+</div>
+<div class="tableLink">
+    <table cellspacing="0" cellpadding="0">
+        <thead>
+            <tr>
+                <th *ngFor="let item of headData">{{item}}</th>
+            </tr>
+            <tr>
+                <ng-container *ngFor="let item of headData;index as i">
+                    <th class="white" *ngIf="i === 0;else elseTh">--</th>
+                    <ng-template #elseTh>
+                        <th class="white">{{+i}}</th>
+                    </ng-template>
+                </ng-container>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let data of dataSet;index as i">
+                <ng-container *ngFor="let item of ObjectKeys;">
+                    <td>
+                        <ng-container [ngSwitch]="item">
+                            <ng-container *ngSwitchCase="'opera'">
+                                <ion-button *ngIf="!circleStatus" size="small" (click)="trial(i)">
+                                    <ion-icon name="flask-outline"></ion-icon>&nbsp;试验
+                                </ion-button>
+                                <ion-button *ngIf="circleStatus" size="small" (click)="trial(i)">
+                                    <ion-icon name="checkmark-circle-outline"></ion-icon>&nbsp;确认
+                                </ion-button>
+                            </ng-container>
+                            <ng-container *ngSwitchCase="'norder'">
+                                {{data[item]}}
+                            </ng-container>
+                            <ng-container *ngSwitchCase="'column1'">
+                                {{data[item]}}
+                            </ng-container>
+                            <ng-container *ngSwitchCase="'column11'">
+                                {{data[item]}}
+                            </ng-container>
+                            <ng-container *ngSwitchCase="'column12'">
+                                {{data[item]}}
+                            </ng-container>
+                            <ng-container *ngSwitchDefault>
+                                <ng-container [ngSwitch]="data[item]">
+                                    <ng-container *ngSwitchCase="'0'"><span class="fz20">*</span></ng-container>
+                                    <ng-container *ngSwitchCase="'1'"><span class="fz20">○</span></ng-container>
+                                    <ng-container *ngSwitchCase="'2'"><span class="fz20">△</span></ng-container>
+                                    <ng-container *ngSwitchCase="'3'"><span class="fz20">√</span></ng-container>
+                                    <ng-container *ngSwitchCase="'4'"><span class="fz20">×</span></ng-container>
+                                </ng-container>
+                            </ng-container>
+                        </ng-container>
+                    </td>
+                </ng-container>
+            </tr>
+        </tbody>
+    </table>
+</div>

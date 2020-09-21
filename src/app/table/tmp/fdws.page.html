@@ -1,0 +1,127 @@
+<div class="tableStatus">
+    状态：<span>{{viewParam.stateName}}</span>
+</div>
+<div class="tableLink">
+    <table cellspacing="0" cellpadding="0">
+        <thead>
+            <tr>
+                <th rowspan="3">操作</th>
+                <th rowspan="3">序号</th>
+                <th rowspan="3">号码</th>
+                <th colspan="2">核对位置</th>
+                <th colspan="8">道岔断表示接点</th>
+                <th colspan="3">断相保护</th>
+                <th colspan="2">四毫米试验</th>
+                <th colspan="2">五、六、十毫米试验</th>
+                <th colspan="2">2DQJ、D（F）BJ及道岔表示一致</th>
+                <th colspan="4">道岔锁闭</th>
+
+                <th colspan="2">断遮断器</th>
+                <th rowspan="3">多机牵引总保护</th>
+                <th rowspan="3">多机牵引总表示及双断检查</th>
+                <th rowspan="3">道岔自闭电路试验</th>
+                <th rowspan="3">道岔间互锁</th>
+                <th rowspan="3">挤岔断表示报警</th>
+                <th rowspan="3">13、30S切断</th>
+                <th colspan="8">密贴检查器断表示接点</th>
+
+                <th rowspan="3">断表示保险试验</th>
+                <th rowspan="3">下拉装置试验</th>
+                <th rowspan="3">道岔区段前接点接入启动电路</th>
+                <th rowspan="3">道岔被阻后转换试验</th>
+                <th rowspan="3">DKJ、DWJ试验</th>
+                <th rowspan="3">副机不到位主机不停转</th>
+                <th rowspan="3">试验者</th>
+            </tr>
+            <tr>
+                <th rowspan="2">定位</th>
+                <th rowspan="2">反位</th>
+                <th colspan="4">定位</th>
+                <th colspan="4">反位</th>
+
+                <th rowspan="2">A</th>
+                <th rowspan="2">B</th>
+                <th rowspan="2">C</th>
+                <th rowspan="2">定位</th>
+                <th rowspan="2">反位</th>
+                <th rowspan="2">定位</th>
+                <th rowspan="2">反位</th>
+                <th rowspan="2">定位</th>
+                <th rowspan="2">反位</th>
+                <th rowspan="2">单独</th>
+                <th rowspan="2">区段</th>
+                <th rowspan="2">进路</th>
+                <th rowspan="2">引导总锁</th>
+                <th rowspan="2">定位</th>
+                <th rowspan="2">反位</th>
+
+                <th colspan="2">定位密贴</th>
+                <th colspan="2">定位斥离</th>
+                <th colspan="2">反位密贴</th>
+                <th colspan="2">反位斥离</th>
+            </tr>
+            <tr>
+                <th>Ⅰ</th>
+                <th>Ⅱ</th>
+                <th>Ⅲ</th>
+                <th>Ⅳ</th>
+                <th>Ⅰ</th>
+                <th>Ⅱ</th>
+                <th>Ⅲ</th>
+                <th>Ⅳ</th>
+                <th>Ⅰ</th>
+                <th>Ⅱ</th>
+                <th>Ⅰ</th>
+                <th>Ⅱ</th>
+                <th>Ⅰ</th>
+                <th>Ⅱ</th>
+                <th>Ⅰ</th>
+                <th>Ⅱ</th>
+            </tr>
+            <tr>
+                <ng-container *ngFor="let item of headData;index as i">
+                    <th class="white" *ngIf="i === 0;else elseTh">--</th>
+                    <ng-template #elseTh>
+                        <th class="white">{{+i}}</th>
+                    </ng-template>
+                </ng-container>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let data of dataSet;index as i">
+                <ng-container *ngFor="let item of ObjectKeys;">
+                    <td>
+                        <ng-container [ngSwitch]="item">
+                            <ng-container *ngSwitchCase="'opera'">
+                                <ion-button *ngIf="!circleStatus" size="small" (click)="trial(i)">
+                                    <ion-icon name="flask-outline"></ion-icon>&nbsp;试验
+                                </ion-button>
+                                <ion-button *ngIf="circleStatus" size="small" (click)="trial(i)">
+                                    <ion-icon name="checkmark-circle-outline"></ion-icon>&nbsp;确认
+                                </ion-button>
+                            </ng-container>
+                            <ng-container *ngSwitchCase="'norder'">
+                                {{data[item]}}
+                            </ng-container>
+                            <ng-container *ngSwitchCase="'column1'">
+                                {{data[item]}}
+                            </ng-container>
+                            <ng-container *ngSwitchCase="'column47'">
+                                {{data[item]}}
+                            </ng-container>
+                            <ng-container *ngSwitchDefault>
+                                <ng-container [ngSwitch]="data[item]">
+                                    <ng-container *ngSwitchCase="'0'"><span class="fz20">*</span></ng-container>
+                                    <ng-container *ngSwitchCase="'1'"><span class="fz20">○</span></ng-container>
+                                    <ng-container *ngSwitchCase="'2'"><span class="fz20">△</span></ng-container>
+                                    <ng-container *ngSwitchCase="'3'"><span class="fz20">√</span></ng-container>
+                                    <ng-container *ngSwitchCase="'4'"><span class="fz20">×</span></ng-container>
+                                </ng-container>
+                            </ng-container>
+                        </ng-container>
+                    </td>
+                </ng-container>
+            </tr>
+        </tbody>
+    </table>
+</div>

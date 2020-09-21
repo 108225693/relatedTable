@@ -1,0 +1,100 @@
+<div class="tableStatus">
+    状态：<span>{{viewParam.stateName}}</span>
+</div>
+<div class="tableLink">
+    <table cellspacing="0" cellpadding="0">
+        <thead>
+            <tr>
+                <th rowspan="2">操作</th>
+                <th rowspan="2">序号</th>
+                <th rowspan="2">名称</th>
+                <th rowspan="2">安装位置及显示方向核对</th>
+                <th colspan="10">灯位及显示核对</th>
+                <th colspan="6">主付丝（灯泡）转换</th>
+                <th colspan="6">断丝表示</th>
+                <th rowspan="2">进路表示器核对</th>
+                <th rowspan="2">复示信号机核对</th>
+                <th rowspan="2">灯光转移</th>
+                <th rowspan="2">红灯断丝不能开放信号</th>
+                <th rowspan="2">侧线出站红灯断丝能开放信号</th>
+                <th rowspan="2">断路器作用试验</th>
+                <th rowspan="2">同名端核对</th>
+                <th rowspan="2">备注</th>
+                <th rowspan="2">试验者</th>
+            </tr>
+            <tr>
+                <th>H</th>
+                <th>U</th>
+                <th>UU</th>
+                <th>U闪U</th>
+                <th>LU</th>
+                <th>L</th>
+                <th>LL</th>
+                <th>HB</th>
+                <th>A</th>
+                <th>B</th>
+
+                <th>1U</th>
+                <th>L</th>
+                <th>H</th>
+                <th>2U</th>
+                <th>B</th>
+                <th>A</th>
+
+                <th>1U</th>
+                <th>L</th>
+                <th>H</th>
+                <th>2U</th>
+                <th>B</th>
+                <th>A</th>
+            </tr>
+            <tr>
+                <ng-container *ngFor="let item of headData;index as i">
+                    <th class="white" *ngIf="i === 0;else elseTh">--</th>
+                    <ng-template #elseTh>
+                        <th class="white">{{+i}}</th>
+                    </ng-template>
+                </ng-container>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let data of dataSet;index as i">
+                <ng-container *ngFor="let item of ObjectKeys;">
+                    <td>
+                        <ng-container [ngSwitch]="item">
+                            <ng-container *ngSwitchCase="'opera'">
+                                <ion-button *ngIf="!circleStatus" size="small" (click)="trial(i)">
+                                    <ion-icon name="flask-outline"></ion-icon>&nbsp;试验
+                                </ion-button>
+                                <ion-button *ngIf="circleStatus" size="small" (click)="trial(i)">
+                                    <ion-icon name="checkmark-circle-outline"></ion-icon>&nbsp;确认
+                                </ion-button>
+                            </ng-container>
+                            <ng-container *ngSwitchCase="'norder'">
+                                {{data[item]}}
+                            </ng-container>
+                            <ng-container *ngSwitchCase="'column1'">
+                                {{data[item]}}
+                            </ng-container>
+                            <ng-container *ngSwitchCase="'column32'">
+                                {{data[item]}}
+                            </ng-container>
+                            <ng-container *ngSwitchCase="'column33'">
+                                {{data[item]}}
+                            </ng-container>
+                            <ng-container *ngSwitchDefault>
+                                <ng-container [ngSwitch]="data[item]">
+                                    <ng-container *ngSwitchCase="'0'"><span class="fz20">*</span></ng-container>
+                                    <ng-container *ngSwitchCase="'1'"><span class="fz20">○</span></ng-container> 
+                                    <ng-container *ngSwitchCase="'2'"><span class="fz20">△</span></ng-container> 
+                                    <ng-container *ngSwitchCase="'3'"><span class="fz20">√</span></ng-container>
+                                    <ng-container *ngSwitchCase="'4'"><span class="fz20">×</span></ng-container> 
+                                </ng-container>
+                            </ng-container>
+                        </ng-container>
+                    </td>
+                </ng-container>
+            </tr>
+        </tbody>
+    </table>
+</div>

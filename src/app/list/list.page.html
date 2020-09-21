@@ -1,0 +1,47 @@
+<ion-grid class="view_wrap p15" style="padding-bottom:10px">
+    <ion-row>
+        <ion-col size="3"><b>施工表格：</b><span>{{viewParam.project}}</span></ion-col>
+        <ion-col size="3"><b>施工时间：</b><span>{{viewParam.workDate}}</span></ion-col>
+        <ion-col><b>施工内容：</b><span>{{viewParam.content}}</span></ion-col>
+    </ion-row>
+</ion-grid>
+<ion-grid>
+    <div class="center" *ngIf="sgList.length === 0">
+        <ion-icon name="alert-circle-outline"></ion-icon> 暂无数据
+    </div>
+    <ng-container *ngFor="let item of sgList">
+        <ion-row (click)="listClick(item)" class="mainList">
+            <ion-col class="opera"><span class="colorGray">联锁试验表：</span>{{item.tbName}}</ion-col>
+            <ion-col size="3" class="opera">
+                <ion-icon class="enter" name="chevron-forward-outline"></ion-icon>
+                <ng-container [ngSwitch]="item.state">
+                    <ng-container *ngSwitchCase="'1'">
+                        <ion-button size="small" class="button" color="warning">车间编制中</ion-button>
+                    </ng-container>
+                    <ng-container *ngSwitchCase="'2'">
+                        <ion-button size="small" class="button" color="danger">车间已提交</ion-button>
+                    </ng-container>
+                    <ng-container *ngSwitchCase="'3'">
+                        <ion-button size="small" class="button" color="danger">段审批</ion-button>
+                    </ng-container>
+                    <ng-container *ngSwitchCase="'4'">
+                        <ion-button size="small" class="button" color="danger">段驳回</ion-button>
+                    </ng-container>
+                    <ng-container *ngSwitchCase="'5'">
+                        <ion-button size="small" class="button" color="warning">工区试验中</ion-button>
+                    </ng-container>
+                    <ng-container *ngSwitchCase="'6'">
+                        <ion-button size="small" class="button" color="success">工区已完成</ion-button>
+                    </ng-container>
+                    <ng-container *ngSwitchCase="'7'">
+                        <ion-button size="small" class="button" color="success">车间确认完成</ion-button>
+                    </ng-container>
+                    <ng-container *ngSwitchCase="'8'">
+                        <ion-button size="small" class="button" color="danger">车间确认未完成</ion-button>
+                    </ng-container>
+                </ng-container>
+            </ion-col>
+        </ion-row>
+        <div class="line15"></div>
+    </ng-container>
+</ion-grid>

@@ -1,0 +1,8 @@
+{
+  "name": "ng-ionic-relatedTable",
+  "integrations": {
+    "capacitor": {},
+    "cordova": {}
+  },
+  "type": "angular"
+}

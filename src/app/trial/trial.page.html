@@ -1,0 +1,62 @@
+    <div class="line15"></div>
+    <ion-grid class="view_wrap p15">
+        <ion-row>
+            <ion-col>站名：<br />{{info.station}}</ion-col>
+            <ion-col>主持试验人：<br />{{info.experHost}}</ion-col>
+            <ion-col>试验日期：<br />{{info.experDate}}</ion-col>
+            <ion-col>配合试验人：<br />{{info.experAssit}}</ion-col>
+            <ion-col>编制人：<br />{{info.author}}</ion-col>
+            <ion-col>批准人：<br />{{info.verifier}}</ion-col>
+            <ion-col>监督人：<br />{{info.approver}}</ion-col>
+        </ion-row>
+    </ion-grid>
+    <div class="view_wrap syqk">
+        <div class="title">{{viewParam.tbName}}-试验情况：</div>
+        <div>
+            <ng-container *ngFor="let item of trialObj">{{item}}：
+                <span class="inputBg">
+                    {{!trialInfo[item] ? '--' : trialInfo[item]}}
+                </span>&nbsp;&nbsp;&nbsp;
+            </ng-container>
+        </div>
+    </div>
+    <div class="view_wrap opera">
+        <ion-button *ngIf="!complet" class="mr10" (click)="enter()">确认完成</ion-button>
+        <ng-container *ngIf="complet">
+            <ion-button *ngFor="let item of userList" (click)="loseFace(item)" fill="outline" [disabled]="item.disabled"
+                class="mr10">
+                <ion-icon name="scan-outline"></ion-icon>&nbsp;{{item.name}}
+            </ion-button>
+            <!-- 完成 {{completUser}} -->
+        </ng-container>
+    </div>
+    <div class="tableLink noscroll">
+        <table cellspacing="0" cellpadding="0">
+            <tr>
+                <th style="width:40%">试验项目名称</th>
+                <th>联锁试验情况</th>
+            </tr>
+        </table>
+    </div>
+    <div class="tableLink" style="margin-top:0">
+        <table cellspacing="0" cellpadding="0">
+            <tr *ngFor="let data of dataSet">
+                <td style="width:40%">{{data.name}}</td>
+                <td class="radio_group">
+                    <ion-list>
+                        <ion-radio-group [(ngModel)]="data.value">
+                            <ion-row>
+                                <ion-col *ngFor="let item of radioList">
+                                    <ion-item>
+                                        <ion-label class="ft20">{{item.name}}</ion-label>
+                                        <ion-radio [disabled]="radioDisabled" slot="start" [value]="item.id">
+                                        </ion-radio>
+                                    </ion-item>
+                                </ion-col>
+                            </ion-row>
+                        </ion-radio-group>
+                    </ion-list>
+                </td>
+            </tr>
+        </table>
+    </div>

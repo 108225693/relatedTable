@@ -1,0 +1,41 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <div *ngIf="backTitle" class="back" (click)="backClick()">
+      <ion-icon name="arrow-back-outline"></ion-icon><span [title]="backTitle" class="bt">{{backTitle}}</span>
+    </div>
+    <ion-title class="bg">{{title}}</ion-title>
+    <ion-icon class="info" (click)="infoClick()" name="person-outline"></ion-icon>
+  </ion-toolbar>
+</ion-header>
+
+<ion-menu side="start" menuId="userInfo" contentId="userMain">
+  <ion-header>
+    <ion-toolbar color="primary">
+      <ion-title>个人信息</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <div class="user">
+      <img src="../../assets/avatar.png">
+      <span>{{loginInfo.loginName}}（{{loginInfo.orgName}}）</span><br />
+      <span>{{loginInfo.email}}</span>
+    </div>
+
+    <ion-list>
+      <ion-item (click)="faceReg()">
+        <ion-icon name="scan-outline"></ion-icon>&nbsp;&nbsp;&nbsp;人脸注册
+      </ion-item>
+      <ion-item (click)="switchAccount()">
+        <ion-icon name="people-outline"></ion-icon>&nbsp;&nbsp;&nbsp;切换账号
+      </ion-item>
+      <ion-item (click)="logout()">
+        <ion-icon name="exit-outline"></ion-icon>&nbsp;&nbsp;&nbsp;退出
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+<ion-router-outlet id="userMain"></ion-router-outlet>
+
+<ion-content [fullscreen]="true">
+  <router-outlet></router-outlet>
+</ion-content>

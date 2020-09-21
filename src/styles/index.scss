@@ -1,0 +1,58 @@
+body {
+    background: #f9f8f7;
+}
+
+.fz20 {
+    font-size: 20px;
+}
+
+.mt20 {
+    margin-top: 20px;
+}
+
+.tableStatus {
+    margin: 20px 0 10px 15px;
+
+    span {
+        padding   : 5px;
+        background: #eee;
+    }
+}
+
+.center {
+    text-align: center;
+}
+
+.tableLink {
+    width          : calc(100% - 30px);
+    margin         : 15px;
+    overflow-x     : auto;
+    overflow-y     : hidden;
+    border-collapse: collapse;
+
+    &.mt {
+        margin-top: 75px;
+    }
+
+    table {
+        width      : 100%;
+        font-size  : 12px;
+        font-weight: normal;
+
+        th,
+        td {
+            background: #f1f1f1;
+            border    : 1px solid #ccc;
+            padding   : 5px;
+            text-align: center;
+        }
+
+        td {
+            background: #fff;
+        }
+    }
+}
+
+// ion-content {
+//     --background: transparent !important;
+// }
